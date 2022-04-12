@@ -9,8 +9,8 @@ class Bureaucrat {
 		virtual ~Bureaucrat();
 		Bureaucrat(const Bureaucrat& bureaucrat);
 		Bureaucrat &operator=(const Bureaucrat& bureaucrat);
-		int getGrade();
-		std::string getName();
+		int getGrade() const;
+		std::string getName() const;
 		void incGrade();
 		void decGrade();
 		class GradeTooLowException : public std::exception {
@@ -24,4 +24,5 @@ class Bureaucrat {
 		int _grade;
 };
 
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
 #endif

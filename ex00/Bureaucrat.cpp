@@ -18,6 +18,7 @@ void check_grade(int grade) {
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	check_grade(grade);
+	_grade = grade;
 	std::cout << "Bureaucrat contructor called" << std::endl;
 }
 
@@ -37,11 +38,11 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat) {
 	return *this;
 }
 
-std::string Bureaucrat::getName() {
+std::string Bureaucrat::getName() const {
 	return _name;
 }
 
-int Bureaucrat::getGrade() {
+int Bureaucrat::getGrade() const {
 	return _grade;
 }
 
@@ -55,3 +56,7 @@ void Bureaucrat::incGrade() {
 	_grade++;
 }
 
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b) {
+	out << b.getName() << ", bureaucrat grade " << b.getGrade();
+	return out;
+}
