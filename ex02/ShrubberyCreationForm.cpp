@@ -1,6 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137), _target(target)  {
 	std::cout << "ShrubberyCreationForm contructor called" << std::endl;
@@ -15,8 +16,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& form) 
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm& form) {
-	//assignment is mandatory, const attribute too :(
-	//_name = form._name; 
 	setSigned(form.getSigned());
 	return *this;
 }
@@ -28,4 +27,22 @@ std::string ShrubberyCreationForm::getTarget() const {
 std::ostream &ShrubberyCreationForm::write(std::ostream &out) const {
 	out << getName() << ", sign grade " << getSignGrade() << ", exec grade " << getExecGrade() << "," << (getSigned() ? "" : " not") << " signed, target " << getTarget();
 	return out;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	check_execute(executor);
+	std::string filename = _target + "_shrubbery";
+	std::ofstream out(filename);
+	if (out.is_open()) {
+		out << "       ~~~" << std::endl
+			<< "   ~~~~   ~~~" << std::endl
+			<< " ~~~ -  ~~-  ~~~~" << std::endl
+			<< "~~ -  ~ ~~~  - ~~" << std::endl
+			<< " ~~~~~- -  ~~_ ~~" << std::endl
+			<< "   ~~~~~~~ ~~   " << std::endl
+			<< "       | |     " << std::endl
+			<< "       | |     " << std::endl
+			<< "   ~~~~~ ~~~~"<< std::endl;
+	}
+	out.close();
 }

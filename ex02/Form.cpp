@@ -2,12 +2,23 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+const char *Form::NotSignedException::what() const throw () {
+	return "the form is not signed";
+}
+
 const char *Form::GradeTooLowException::what() const throw () {
 	return "grade is too low!";
 }
 
 const char *Form::GradeTooHighException::what() const throw () {
 	return "grade is too high!";
+}
+
+void Form::check_execute(Bureaucrat const &b) const {
+	if (!getSigned())
+		throw Form::NotSignedException();
+	if (getExecGrade() < b.getGrade())
+		throw Form::GradeTooLowException();
 }
 
 int Form::check_grade(int grade) {

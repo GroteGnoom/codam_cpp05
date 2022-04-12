@@ -22,8 +22,13 @@ class Form {
 		class GradeTooHighException : public std::exception {
 			const char *what() const throw ();
 		};
+		class NotSignedException : public std::exception {
+			const char *what() const throw ();
+		};
 		void beSigned(Bureaucrat b);
 		virtual std::ostream &write(std::ostream &out) const;
+		virtual void execute(Bureaucrat const &executor) const = 0;
+		void check_execute(Bureaucrat const &b) const;
 	private:
 		const std::string _name;
 		bool _signed;
