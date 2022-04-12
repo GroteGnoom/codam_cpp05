@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 
 int main() {
@@ -36,8 +37,26 @@ int main() {
 	std::cout << "-------------executing forms----------" << std::endl;
 	a.executeForm(fa);
 	b.executeForm(fa);
-	ShrubberyCreationForm fc("notSignedTargetwoohoo");
+	RobotomyRequestForm fc("notSignedTargetwoohoo");
 	a.executeForm(fc);
+
+	std::cout << "-------------RobotomyRequestForms!----------" << std::endl;
+	RobotomyRequestForm ra("robotomytarget");
+	RobotomyRequestForm rb("R2");
+	std::cout << "form a is " << ra << std::endl;
+	std::cout << "form b is " << rb << std::endl;
+
+	std::cout << "-------------Signing forms!----------" << std::endl;
+	a.signForm(ra);
+	a.signForm(rb);
+	b.signForm(ra);
+	b.signForm(rb);
+
+	std::cout << "-------------executing forms----------" << std::endl;
+	a.executeForm(ra);
+	b.executeForm(ra);
+	RobotomyRequestForm rc("notSignedTargetwoohoo");
+	a.executeForm(rc);
 
 	std::cout << "-------------the great destruction ---------" << std::endl;
 }

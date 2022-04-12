@@ -1,6 +1,6 @@
 NAME = bureaucrat
-SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
-INC = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+INC = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 
 ifdef DEBUG
 	CC=clang++
