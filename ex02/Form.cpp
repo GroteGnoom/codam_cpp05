@@ -34,7 +34,7 @@ void check_sign_grade(int sign_grade, int bureaucrat_grade) {
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(std::string name, int sign_grade, int exec_grade) : _name(name), _signed(false), _sign_grade(check_grade(sign_grade)), _exec_grade(check_grade(exec_grade)) {
+Form::Form(std::string name, int sign_grade, int exec_grade, std::string target) : _name(name), _signed(false), _sign_grade(check_grade(sign_grade)), _exec_grade(check_grade(exec_grade)), _target(target) {
 	std::cout << "Form contructor called" << std::endl;
 }
 
@@ -42,7 +42,7 @@ Form::~Form() {
 	std::cout << "Form destructor called" << std::endl;
 };
 
-Form::Form(const Form& form) : _name(form._name), _signed(form._signed), _sign_grade(form._sign_grade), _exec_grade(form._exec_grade) {
+Form::Form(const Form& form) : _name(form._name), _signed(form._signed), _sign_grade(form._sign_grade), _exec_grade(form._exec_grade), _target(form._target) {
 	std::cout << "Form copy contructor called" << std::endl;
 }
 
@@ -65,6 +65,10 @@ void Form::setSigned(bool s) {
 	_signed = s;
 }
 
+void Form::setTarget(std::string target) {
+	_target = target;
+}
+
 int Form::getSignGrade() const {
 	return _sign_grade;
 }
@@ -78,8 +82,12 @@ void Form::beSigned(Bureaucrat b) {
 	_signed = true;
 }
 
+std::string Form::getTarget() const {
+	return _target;
+}
+
 std::ostream &Form::write(std::ostream &out) const {
-	out << getName() << ", sign grade " << getSignGrade() << ", exec grade " << getExecGrade() << "," << (getSigned() ? "" : " not") << " signed";
+	out << getName() << ", sign grade " << getSignGrade() << ", exec grade " << getExecGrade() << "," << (getSigned() ? "" : " not") << " signed, target " << getTarget();
 	return out;
 }
 
