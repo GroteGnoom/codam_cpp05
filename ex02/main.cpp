@@ -34,13 +34,10 @@ int main() {
 	b.signForm(fb);
 
 	std::cout << "-------------executing forms----------" << std::endl;
-	fa.execute(a);
-	try {
-		fa.execute(b);
-	} 
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	a.executeForm(fa);
+	b.executeForm(fa);
+	ShrubberyCreationForm fc("not signed");
+	a.executeForm(fc);
 
 	std::cout << "-------------the great destruction ---------" << std::endl;
 }

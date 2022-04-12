@@ -22,6 +22,7 @@ class Bureaucrat {
 			const char *what() const throw ();
 		};
 		void signForm(Form &f);
+		void executeForm(Form const &f);
 	private:
 		std::string const _name;
 		int _grade;
