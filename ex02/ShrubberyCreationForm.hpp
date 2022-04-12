@@ -11,11 +11,9 @@ class ShrubberyCreationForm : public Form {
 		ShrubberyCreationForm(std::string target);
 		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& form);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& form);
+		using Form::operator=;
 		std::ostream &write(std::ostream &out) const;
 		void execute(Bureaucrat const &executor) const;
-	private:
-		std::string _target;
 };
 
 #endif
