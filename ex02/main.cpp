@@ -36,7 +36,7 @@ int main() {
 	std::cout << "-------------executing forms----------" << std::endl;
 	a.executeForm(fa);
 	b.executeForm(fa);
-	ShrubberyCreationForm fc("not signed");
+	ShrubberyCreationForm fc("notSignedTargetwoohoo");
 	a.executeForm(fc);
 
 	std::cout << "-------------the great destruction ---------" << std::endl;

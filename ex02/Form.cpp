@@ -47,9 +47,8 @@ Form::Form(const Form& form) : _name(form._name), _signed(form._signed), _sign_g
 }
 
 Form &Form::operator=(const Form& form) {
-	//assignment is mandatory, const attribute too :(
-	//_name = form._name; 
 	_signed = form._signed;
+	_target = form._target;
 	return *this;
 }
 
