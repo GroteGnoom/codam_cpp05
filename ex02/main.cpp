@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main() {
@@ -57,6 +58,25 @@ int main() {
 	b.executeForm(ra);
 	RobotomyRequestForm rc("notSignedTargetwoohoo");
 	a.executeForm(rc);
+
+	std::cout << "-------------PresidentialPardonForms!----------" << std::endl;
+	PresidentialPardonForm pa("pardontarget");
+	PresidentialPardonForm pb("R2");
+	std::cout << "form a is " << pa << std::endl;
+	std::cout << "form b is " << pb << std::endl;
+
+	std::cout << "-------------Signing forms!----------" << std::endl;
+	a.signForm(pa);
+	a.signForm(pb);
+	b.signForm(pa);
+	b.signForm(pb);
+
+	std::cout << "-------------executing forms----------" << std::endl;
+	a.executeForm(pa);
+	b.executeForm(pa);
+	PresidentialPardonForm pc("notSignedTargetwoohoo");
+	a.executeForm(pc);
+
 
 	std::cout << "-------------the great destruction ---------" << std::endl;
 }
