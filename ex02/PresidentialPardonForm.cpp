@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 72, 45, target)  {
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5, target)  {
 	std::cout << "PresidentialPardonForm contructor called" << std::endl;
 }
 
