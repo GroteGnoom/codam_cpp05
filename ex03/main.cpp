@@ -84,6 +84,10 @@ int main() {
     Form*   rrf;
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	delete rrf;
+    rrf = someRandomIntern.makeForm("presidential pardon", "Bloebla");
+	delete rrf;
+    rrf = someRandomIntern.makeForm("nonexistent", "Bloeblablie");
+	delete rrf;
 
 	std::cout << "-------------the great destruction ---------" << std::endl;
 }
