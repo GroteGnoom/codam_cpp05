@@ -1,11 +1,8 @@
 #include "Intern.hpp"
-#include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
-#include <fstream>
-#include <map>
 
 Intern::Intern() {
 	std::cout << "Intern contructor called" << std::endl;
@@ -38,11 +35,15 @@ static Form *shrubbery_creation(std::string target) {
 }
 
 Form *Intern::makeForm(std::string name, std::string target) const {
-	std::map<std::string, Form *(*)(std::string)> consmap;
-	consmap["robotomy request"] = robotomy_request;
-	consmap["presidential pardon"] = presidential_pardon;
-	consmap["shrubbery creation"] = shrubbery_creation;
-	Form *form = consmap[name](target);
-	std::cout << "Intern creates " << *form << std::endl;
-	return form;
+	std::string formnames[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
+	Form *(*forms[])(std::string) = {robotomy_request,  presidential_pardon, shrubbery_creation};
+	for (int i = 0; i < 3; i++) {
+		if (name == formnames[i]) {
+			Form *form = forms[i](target);
+			std::cout << "Intern creates " << *form << std::endl;
+			return form;
+		}
+	}
+	std::cout << "Intern could not handle " << name << std::endl;
+	return NULL;
 }
