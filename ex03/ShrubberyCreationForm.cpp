@@ -25,9 +25,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 			<< " ~~~ -  ~~-  ~~~~\n"
 			<< "~~ -  ~ ~~~  - ~~\n"
 			<< " ~~~~~- -  ~~_ ~~\n"
-			<< "   ~~~~~~~ ~~   \n"
-			<< "       | |     \n"
-			<< "       | |     \n"
+			<< "   ~~~~~~~ ~~\n"
+			<< "       | |\n"
+			<< "       | |\n"
 			<< "   ~~~~~ ~~~~"<< "\n";
 	}
 	out.close();
