@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-	std::cout << "-------------Bureaucrats!----------" << std::endl;
+	std::cout << "-------------Bureaucrats!----------\n";
 	Bureaucrat a("Ms. Bla", 1);
 	Bureaucrat b("Ms. Bloe", 150);
 	try {
@@ -21,7 +21,7 @@ int main() {
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 
-	std::cout << "-------------Forms!----------" << std::endl;
+	std::cout << "-------------Forms!----------\n";
 	Form fa("form A", 1, 3);
 	Form fb("form B", 150, 3);
 	try {
@@ -39,7 +39,7 @@ int main() {
 	std::cout << "form a is " << fa << std::endl;
 	std::cout << "form b is " << fb << std::endl;
 
-	std::cout << "-------------Signing forms!----------" << std::endl;
+	std::cout << "-------------Signing forms!----------\n";
 	a.signForm(fa);
 	a.signForm(fb);
 	b.signForm(fa);

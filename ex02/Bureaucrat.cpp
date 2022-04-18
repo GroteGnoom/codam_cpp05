@@ -20,15 +20,15 @@ void check_grade(int grade) {
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	check_grade(grade);
 	_grade = grade;
-	std::cout << "Bureaucrat contructor called" << std::endl;
+	std::cout << "Bureaucrat contructor called\n";
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor called\n";
 };
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : _name(bureaucrat._name), _grade(bureaucrat._grade) {
-	std::cout << "Bureaucrat copy contructor called" << std::endl;
+	std::cout << "Bureaucrat copy contructor called\n";
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat) {
