@@ -20,21 +20,18 @@ void check_grade(int grade) {
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	check_grade(grade);
 	_grade = grade;
-	std::cout << "Bureaucrat contructor called" << std::endl;
+	std::cout << "Bureaucrat contructor called\n";
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor called\n";
 };
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) {
-	std::cout << "Bureaucrat copy contructor called" << std::endl;
-	*this = bureaucrat;
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : _name(bureaucrat._name), _grade(bureaucrat._grade) {
+	std::cout << "Bureaucrat copy contructor called\n";
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat) {
-	//assignment is mandatory, const attribute too :(
-	//_name = bureaucrat._name; 
 	_grade = bureaucrat._grade;
 	return *this;
 }
@@ -54,24 +51,24 @@ void Bureaucrat::decGrade() {
 
 void Bureaucrat::incGrade() {
 	check_grade(_grade - 1);
-	_grade++;
+	_grade--;
 }
 
 void Bureaucrat::signForm(Form &f) {
 	try {
 		f.beSigned(*this);
-		std::cout << *this << " signed " << f << std::endl;
+		std::cout << *this << " signed " << f << "\n";
 	} catch (std::exception &e) {
-		std::cout << *this << " couldn't sign " << f << " because " << e.what() << std::endl;
+		std::cout << *this << " couldn't sign " << f << " because " << e.what() << "\n";
 	}
 }
 
 void Bureaucrat::executeForm(Form const &f) {
 	try {
 		f.execute(*this);
-		std::cout << *this << " executed " << f << std::endl;
+		std::cout << *this << " executed " << f << "\n";
 	} catch (std::exception &e) {
-		std::cout << *this << " couldn't execute " << f << " because " << e.what() << std::endl;
+		std::cout << *this << " couldn't execute " << f << " because " << e.what() << "\n";
 	}
 }
 

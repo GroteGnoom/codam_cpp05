@@ -35,15 +35,15 @@ void check_sign_grade(int sign_grade, int bureaucrat_grade) {
 }
 
 Form::Form(std::string name, int sign_grade, int exec_grade, std::string target) : _name(name), _signed(false), _sign_grade(check_grade(sign_grade)), _exec_grade(check_grade(exec_grade)), _target(target) {
-	std::cout << "Form contructor called" << std::endl;
+	std::cout << "Form contructor called\n";
 }
 
 Form::~Form() {
-	std::cout << "Form destructor called" << std::endl;
+	std::cout << "Form destructor called\n";
 };
 
 Form::Form(const Form& form) : _name(form._name), _signed(form._signed), _sign_grade(form._sign_grade), _exec_grade(form._exec_grade), _target(form._target) {
-	std::cout << "Form copy contructor called" << std::endl;
+	std::cout << "Form copy contructor called\n";
 }
 
 Form &Form::operator=(const Form& form) {

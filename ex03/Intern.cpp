@@ -5,16 +5,16 @@
 #include <iostream>
 
 Intern::Intern() {
-	std::cout << "Intern contructor called" << std::endl;
+	std::cout << "Intern contructor called\n";
 }
 
 Intern::~Intern() {
-	std::cout << "Intern destructor called" << std::endl;
+	std::cout << "Intern destructor called\n";
 };
 
 Intern::Intern(const Intern& intern) {
 	(void)intern;
-	std::cout << "Intern copy contructor called" << std::endl;
+	std::cout << "Intern copy contructor called\n";
 }
 
 Intern &Intern::operator=(const Intern& intern) {
@@ -40,10 +40,10 @@ Form *Intern::makeForm(std::string name, std::string target) const {
 	for (int i = 0; i < 3; i++) {
 		if (name == formnames[i]) {
 			Form *form = forms[i](target);
-			std::cout << "Intern creates " << *form << std::endl;
+			std::cout << "Intern creates " << *form << "\n";
 			return form;
 		}
 	}
-	std::cout << "Intern could not handle " << name << std::endl;
+	std::cout << "Intern could not handle " << name << "\n";
 	return NULL;
 }

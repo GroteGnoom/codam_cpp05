@@ -10,7 +10,7 @@ class Intern {
 	public:
 		Intern();
 		virtual ~Intern();
-		Intern(const Intern& form);
+		Intern(const Intern& intern);
 		Intern &operator=(const Intern& intern);
 		Form *makeForm(std::string name, std::string target) const;
 };
