@@ -26,14 +26,11 @@ Bureaucrat::~Bureaucrat() {
 	std::cout << "Bureaucrat destructor called" << std::endl;
 };
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) {
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : _name(bureaucrat._name), _grade(bureaucrat._grade) {
 	std::cout << "Bureaucrat copy contructor called" << std::endl;
-	*this = bureaucrat;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat) {
-	//assignment is mandatory, const attribute too :(
-	//_name = bureaucrat._name; 
 	_grade = bureaucrat._grade;
 	return *this;
 }
@@ -53,7 +50,7 @@ void Bureaucrat::decGrade() {
 
 void Bureaucrat::incGrade() {
 	check_grade(_grade - 1);
-	_grade++;
+	_grade--;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b) {

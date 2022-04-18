@@ -4,6 +4,7 @@
 int main() {
 	Bureaucrat a("Ms. Bla", 1);
 	Bureaucrat b("Ms. Bloe", 150);
+	Bureaucrat c(a);
 	try {
 		Bureaucrat c("Ms. Too low", 250);
 	}
@@ -18,4 +19,8 @@ int main() {
 	}
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+
+	b = a;
+	std::cout << "b is now " << b << std::endl;
 }
